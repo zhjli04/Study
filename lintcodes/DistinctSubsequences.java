@@ -20,6 +20,18 @@ If S=rarab T=ra, there are three distinct subsequence of S equal to T: ra *, * r
      */
     public int numDistinct(String S, String T) {
         // write your code here
+	    /*
+	 * define dp[i][j] as total distinct strings [0,j] of T in [0,i] of S,
+then there are two cases:
+
+    dp[i][j] = dp[i-1][j] ,which means we can find [0,j] in [0,i-1].
+    dp[i][j] = dp[i-1][j] + dp[i-1][j-1] if T[j] = S[i], either we can find [0,j] in [0,i-1], or find [0,j-1] in [0,i-1] with T[i] = S[i].
+
+with optimization, use one dimension and iterate back forward then
+
+    dp[i] = dp[i]
+    dp[i] = dp[i] + dp[i-1]
+	 */
           if (T.length() == 0)
 	        return 1;
 	        
