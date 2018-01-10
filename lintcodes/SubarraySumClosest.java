@@ -5,7 +5,7 @@ public class Solution {
     
     Example
 Given [-3, 1, 1, -3, 5], return [0, 2], [1, 3], [1, 1], [2, 2] or [0, 4].
-    
+    相比于Subarray Sum问题，这里同样可以记录下位置i的sum，存入一个数组或者链表中，按照sum的值sort，再寻找相邻两个sum差值绝对值最小的那个，也就得到了subarray sum closest to 0。
      * @param nums: A list of integers
      * @return: A list of integers includes the index of the first number and the index of the last number
      */
