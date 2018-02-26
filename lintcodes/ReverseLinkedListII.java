@@ -30,7 +30,27 @@ public class Solution {
             return head;
         }
         
-        if (m == 1){
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        
+        ListNode cur = dummy;
+        ListNode next = cur.next;
+        int count = 1;
+        
+        while(next != null){
+            if (count == m){
+               ListNode node =  reverse(next, n - m + 1);
+               cur.next = node;
+               return dummy.next;
+            }
+            count++;
+            cur = next;
+            next = next.next;
+        }
+        
+        return dummy.next;
+        
+    /*    if (m == 1){
             ListNode node = reverse(head, n - m + 1);
             return node;
         }
@@ -49,7 +69,7 @@ public class Solution {
             cur = next;
             next = next.next;
         }
-        return head;
+        return head;*/
     }
     
     public ListNode reverse(ListNode head, int count){
