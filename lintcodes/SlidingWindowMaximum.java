@@ -22,11 +22,12 @@ class Solution {
             return new int[0];
         }
         
-        if (nums.length <= k){
-            return findMax(nums);
+        int len = nums.length - k + 1;
+        if (len <= 0){
+            len = 1;
         }
         
-        int res[] = new int[nums.length - k + 1];
+        int res[] = new int[len];
         int pos = 0;
         LinkedList ll = new LinkedList();
         for (int i=0; i< nums.length; i++){
