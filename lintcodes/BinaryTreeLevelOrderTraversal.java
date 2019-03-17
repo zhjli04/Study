@@ -49,6 +49,22 @@ class Solution {
              }
              res.add(ll);
         }
+        
+        /*
+        dfs(res, root, 0);
+        */
         return res;
+    }
+    public void dfs( List<List<Integer>> res, TreeNode root, int level){
+        if (root == null){
+            return;
+        }
+        if (res.size() < level + 1){
+            res.add(new ArrayList<Integer>());
+        }
+        
+        res.get(level).add(root.val);
+        dfs(res, root.left, level + 1);
+        dfs(res, root.right, level + 1);
     }
 }
