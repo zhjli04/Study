@@ -35,20 +35,19 @@ class Solution {
         LinkedList<TreeNode> list = new LinkedList<TreeNode>();
         list.offer(root);
         while(list.size() > 0){
-             List<Integer> ll = new ArrayList<Integer>();
-             LinkedList<TreeNode> nl = new LinkedList<TreeNode>();
-             while(list.size() > 0){
+              List<Integer> ll = new ArrayList<Integer>();
+             int size = list.size();
+             for (int i = 0; i < size; i++){
                    TreeNode node = list.poll();
                    ll. add(node.val);
                    if (node.left != null){
-                      nl.offer(node.left);
+                      list.offer(node.left);
                    }
                    if (node.right != null){
-                     nl.offer(node.right);
+                     list.offer(node.right);
                    }
              }
              res.add(ll);
-             list = nl;
         }
         return res;
     }
