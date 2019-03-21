@@ -27,15 +27,33 @@ class Solution {
     Set<Integer> cols = new HashSet<Integer>();
     Set<Integer> p = new HashSet<Integer>();
     Set<Integer> na = new HashSet<Integer>();
+ int count = 0;
     public int totalNQueens(int n) {
         if (n <= 0){
             return 0;
         }
         
-        List<List<Integer>> lli = new ArrayList<List<Integer>>();
+      /*  List<List<Integer>> lli = new ArrayList<List<Integer>>();
         List<Integer> lr = new ArrayList<Integer>();
         dfs(lli, 0, n, lr);
         return lli.size();
+        */
+      search(0, 0, 0, 0, n);
+        return count;
+    }
+ 
+  public void search(int row, int col, int pie, int na, int n){
+        if (row >= n){
+            count++;
+            return;
+        }
+        
+        int bits = (~(col|pie|na)) & ((1<<n) - 1);
+        while(bits > 0){
+            int p = bits & -bits;
+            search(row + 1, col|p, (pie|p) << 1, (na|p) >> 1, n);
+            bits &= bits - 1;
+        }
     }
     
      public void dfs(List<List<Integer>> lli, int row, int n, List<Integer> state){
