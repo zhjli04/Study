@@ -23,6 +23,25 @@ class Solution {
         }
         
         int row = triangle.size();
+	     int [] sum = new int[triangle.get(row-1).size()];
+         List<Integer> list = triangle.get(row-1);
+         for (int j=0; j<list.size(); j++) {
+             sum[j] = list.get(j);
+         }
+        
+         for (int i=row-2; i>=0; i--){
+            List<Integer> li = triangle.get(i);
+            for (int j=0; j<i+1; j++){
+                int cur = li.get(j);
+                if (sum[j] < sum[j+1]) {
+	            		sum[j] = cur + sum[j];
+	            	}else {
+	            		sum[j] = cur + sum[j+1];
+	            	}
+            }
+        }
+        return sum[0];
+	    /*
         int col = triangle.get(row-1).size();
         int [][] sum = new int[row][col];
 	        for (int j=0; j<row; j++) {
@@ -41,5 +60,6 @@ class Solution {
             }
         }
         return sum[0][0];
+	*/
     }
 }
