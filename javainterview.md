@@ -8,6 +8,7 @@
 - HashSet基于HashMap实现，元素无序
 - LinkedHashSet继承HashSet，底层使用 LinkedHashMap, 元素以插入顺序排序
 ## 3. HashMap 如何解决冲突，扩容机制 resize()
+- table长度为capacity
 - 解决冲突用链表，链表长度大于TREEIFY_THRESHOLD则转为红黑树TreeNode
 - 扩容机制： threshold=capacity * loadFactor， 当元素数量超过threshold时扩容，新的capacity变成原来的两倍, 
 单个元素放在 newTab[e.hash & (newCap - 1)]
