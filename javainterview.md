@@ -1,8 +1,8 @@
 ## 1.TreeMap/HashMap/Hashtable/LinkedHashMap区别
-TreeMap extends AbstractMap<K,V> implements NavigableMap<K,V> (SortedMap) 以key值有序
-HashMap extends AbstractMap<K,V> implements Map 无序
-Hashtable, extends Dictionary<K, V> implements Map 无序，同步
-LinkedHashMap extends HashMap<K,V> implements Map<K,V>, 以插入顺序排序
+- TreeMap extends AbstractMap<K,V> implements NavigableMap<K,V> (SortedMap) 以key值有序
+- HashMap extends AbstractMap<K,V> implements Map 无序
+- Hashtable, extends Dictionary<K, V> implements Map 无序，同步
+- LinkedHashMap extends HashMap<K,V> implements Map<K,V>, 以插入顺序排序
 
 ## 2.TreeSet/HashSet/LinkedHashSet区别
 TreeSet基于TreeMap实现，元素有序
