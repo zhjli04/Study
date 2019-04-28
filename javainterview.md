@@ -13,9 +13,9 @@
 单个元素放在 newTab[e.hash & (newCap - 1)]
 链表中 hash & oldCap == 0的放在原来的位置j，不为0的放在 newTab[j + oldCap]
 ## ConcurrentHashMap 如何做到高并发
-- put
+- put  
   当前位置没有元素的时候，调研Unsafe.compareAndSwapObject，将Node放到当前位置
   当前位置有元素时，锁住当前元素，将Node插入链表尾部，链表长度超过TREEIFY_THRESHOLD则转为红黑树TreeNode
-- get
+- get  
   无锁，通过volatile机制实现修改即可见 volatile Node<K,V>[] table
 
