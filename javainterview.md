@@ -12,8 +12,8 @@
 - 解决冲突用链表，链表长度大于TREEIFY_THRESHOLD则转为红黑树TreeNode
 - 扩容机制： threshold=capacity * loadFactor， 当元素数量超过threshold时扩容，新的capacity变成原来的两倍, 
 单个元素放在 newTab[e.hash & (newCap - 1)]
-链表中 hash & oldCap == 0的放在原来的位置j，不为0的放在 newTab[j + oldCap], 也可以理解为旧的找位置用的是 hash&(oldCap-1)，扩容时
-用 hash&oldCap
+链表中 hash & oldCap == 0的放在原来的位置j，不为0的放在 newTab[j + oldCap], 也可以理解为旧位置用的是 j=hash&(oldCap-1)，扩容时
+用 hash&oldCap==0判断
 ## 4.ConcurrentHashMap 如何做到高并发
 - put  
   当前位置没有元素的时候，调研Unsafe.compareAndSwapObject，将Node放到当前位置
