@@ -51,10 +51,10 @@
   ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 6, 1, TimeUnit.SECONDS, queue);   
   executor.execute(Runnable)   
 ## 6.Thread/Runnable/Callable之间的区别
-  - Thread 
-  1. 是一个类  
-  2. 只能被继承  
-  3. 实现方式  
+  - Thread     
+  1. 是一个类      
+  2. 只能被继承      
+  3. 实现方式      
     class ThreadTest extends Thread{      
       private int ticket = 100;      
       public void run(){      
@@ -62,10 +62,10 @@
           if(ticket > 0){   ticket-   }else{ break;     
     }}}    
     new ThreadTest().start();    
- - Runnable  
- 1、是一个接口, thread实现了runnable接口 
- 2、资源可以共享
- 3. 实现方式
+ - Runnable      
+ 1、是一个接口, thread实现了runnable接口     
+ 2、资源可以共享    
+ 3. 实现方式    
        class ThreadTest implements Runnable{      
        private int ticket = 100;      
        public void run(){      
@@ -74,12 +74,12 @@
      }}}    
      ThreadTest t = new ThreadTest();    
      new Thread(t).start();     
-  - Callable
-  1、是一个接口
-  2、Callable 使用 call（） 方法， Runnable 使用 run() 方法 
-  3、call() 可以返回值， 而 run()方法不能返回
-  4、call() 可以抛出受检查的异常，比如ClassNotFoundException， 而run()不能抛出受检查的异常
-  5. 实现方式
+  - Callable    
+  1、是一个接口    
+  2、Callable 使用 call（） 方法， Runnable 使用 run() 方法     
+  3、call() 可以返回值， 而 run()方法不能返回    
+  4、call() 可以抛出受检查的异常，比如ClassNotFoundException， 而run()不能抛出受检查的异常    
+  5. 实现方式    
       //1、线程池实现    
     ThreadPoolExecutor aa =   (ThreadPoolExecutor)Executors.newFixedThreadPool (100);    
     Future<Integer> task1 = aa.submit(new Callable<Integer>() {    
