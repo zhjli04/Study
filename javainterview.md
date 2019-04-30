@@ -1,6 +1,4 @@
 
-Table of Contents
-=================
 
       * [1.TreeMap/HashMap/Hashtable/LinkedHashMap区别]()
       * [2.TreeSet/HashSet/LinkedHashSet区别]()
