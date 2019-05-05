@@ -8,7 +8,7 @@
  * []()
  * []()
 
-### TreeMap/HashMap/Hashtable/LinkedHashMap区别
+TreeMap/HashMap/Hashtable/LinkedHashMap区别
 ------
 - TreeMap extends AbstractMap<K,V> implements NavigableMap<K,V> (SortedMap) 以key值有序
 - HashMap extends AbstractMap<K,V> implements Map 无序
