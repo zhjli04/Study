@@ -1,4 +1,3 @@
-* [横线-横线](#横线-横线)
 * [TreeMap-HashMap-Hashtable-LinkedHashMap区别](#TreeMap-HashMap-Hashtable-LinkedHashMap区别)  
 * [TreeSet-HashSet-LinkedHashSet区别](#TreeSet-HashSet-LinkedHashSet区别)  
 * [HashMap如何解决冲突和扩容机制](#HashMap如何解决冲突和扩容机制)  
@@ -107,4 +106,4 @@ java.util.concurrent.ThreadPoolExecutor
             });    
     Thread thread = new Thread(task);    
     thread.start();    
-## 横线-横线
+
