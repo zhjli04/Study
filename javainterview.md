@@ -1,6 +1,5 @@
 * [横线-横线](#横线-横线)
-* [TreeSet](#TreeSet)
-* [TreeMap/HashMap/Hashtable/LinkedHashMap区别](#TreeMap/HashMap/Hashtable/LinkedHashMap区别)  
+* [TreeMap-HashMap-Hashtable-LinkedHashMap区别](#TreeMap-HashMap-Hashtable-LinkedHashMap区别)  
 * [TreeSet/HashSet/LinkedHashSet区别](#TreeSet/HashSet/LinkedHashSet区别)  
 * [HashMap 如何解决冲突，扩容机制 resize()](#HashMap 如何解决冲突，扩容机制 resize())  
 * [ConcurrentHashMap 如何做到高并发](#ConcurrentHashMap 如何做到高并发)  
@@ -9,7 +8,7 @@
 * []()
 * []()
 
-## TreeMap/HashMap/Hashtable/LinkedHashMap区别
+## TreeMap-HashMap-Hashtable-LinkedHashMap区别
 - TreeMap extends AbstractMap<K,V> implements NavigableMap<K,V> (SortedMap) 以key值有序
 - HashMap extends AbstractMap<K,V> implements Map 无序
 - Hashtable, extends Dictionary<K, V> implements Map 无序，同步
