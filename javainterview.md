@@ -1,4 +1,4 @@
- * [横线](#横线)
+* [横线](#横线)
  * [TreeMap/HashMap/Hashtable/LinkedHashMap区别](#TreeMap/HashMap/Hashtable/LinkedHashMap区别)  
  * [TreeSet/HashSet/LinkedHashSet区别](#TreeSet/HashSet/LinkedHashSet区别)  
  * [HashMap 如何解决冲突，扩容机制 resize()](#HashMap 如何解决冲突，扩容机制 resize())  
@@ -106,4 +106,4 @@ TreeMap/HashMap/Hashtable/LinkedHashMap区别
             });    
     Thread thread = new Thread(task);    
     thread.start();    
-  横线
+## 横线
