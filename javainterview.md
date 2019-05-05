@@ -1,7 +1,7 @@
-* [横线](#横线)
+* [横线](#横线 横线)
 * [TreeSet](#TreeSet)
 * [TreeMap/HashMap/Hashtable/LinkedHashMap区别](#TreeMap/HashMap/Hashtable/LinkedHashMap区别)  
-* [TreeSet/HashSet/LinkedHashSet区别](#TreeSet\/HashSet\/LinkedHashSet区别)  
+* [TreeSet/HashSet/LinkedHashSet区别](#TreeSet/HashSet/LinkedHashSet区别)  
 * [HashMap 如何解决冲突，扩容机制 resize()](#HashMap 如何解决冲突，扩容机制 resize())  
 * [ConcurrentHashMap 如何做到高并发](#ConcurrentHashMap 如何做到高并发)  
 * [线程池 java.util.concurrent.ThreadPoolExecutor](#线程池 java.util.concurrent.ThreadPoolExecutor)  
@@ -14,8 +14,7 @@
 - HashMap extends AbstractMap<K,V> implements Map 无序
 - Hashtable, extends Dictionary<K, V> implements Map 无序，同步
 - LinkedHashMap extends HashMap<K,V> implements Map<K,V>, 以插入顺序排序
-## TreeSet
-/HashSet/LinkedHashSet区别
+## TreeSet/HashSet/LinkedHashSet区别
 - TreeSet基于TreeMap实现，元素有序
 - HashSet基于HashMap实现，元素无序
 - LinkedHashSet继承HashSet，底层使用 LinkedHashMap, 元素以插入顺序排序
@@ -108,4 +107,4 @@
             });    
     Thread thread = new Thread(task);    
     thread.start();    
-## 横线
+## 横线 横线
