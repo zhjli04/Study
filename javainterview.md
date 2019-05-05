@@ -8,7 +8,7 @@
  * []()
  * []()
 
-## TreeMap/HashMap/Hashtable/LinkedHashMap区别
+### TreeMap/HashMap/Hashtable/LinkedHashMap区别
 - TreeMap extends AbstractMap<K,V> implements NavigableMap<K,V> (SortedMap) 以key值有序
 - HashMap extends AbstractMap<K,V> implements Map 无序
 - Hashtable, extends Dictionary<K, V> implements Map 无序，同步
@@ -60,7 +60,7 @@
   BlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>(10);  
   ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 6, 1, TimeUnit.SECONDS, queue);   
   executor.execute(Runnable)   
-## Thread/Runnable/Callable之间的区别
+### Thread/Runnable/Callable之间的区别
   - Thread     
   1. 是一个类      
   2. 只能被继承      
