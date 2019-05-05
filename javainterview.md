@@ -1,10 +1,10 @@
 * [横线-横线](#横线-横线)
 * [TreeMap-HashMap-Hashtable-LinkedHashMap区别](#TreeMap-HashMap-Hashtable-LinkedHashMap区别)  
-* [TreeSet/HashSet/LinkedHashSet区别](#TreeSet/HashSet/LinkedHashSet区别)  
-* [HashMap 如何解决冲突，扩容机制 resize()](#HashMap 如何解决冲突，扩容机制 resize())  
-* [ConcurrentHashMap 如何做到高并发](#ConcurrentHashMap 如何做到高并发)  
-* [线程池 java.util.concurrent.ThreadPoolExecutor](#线程池 java.util.concurrent.ThreadPoolExecutor)  
-* [Thread/Runnable/Callable之间的区别](#Thread/Runnable/Callable之间的区别)  
+* [TreeSet-HashSet-LinkedHashSet区别](#TreeSet-HashSet-LinkedHashSet区别)  
+* [HashMap如何解决冲突和扩容机制](#HashMap如何解决冲突和扩容机制)  
+* [ConcurrentHashMap如何做到高并发](#ConcurrentHashMap如何做到高并发)  
+* [线程池ThreadPoolExecutor](#线程池ThreadPoolExecutor)  
+* [Thread-Runnable-Callable之间的区别](#Thread-Runnable-Callable之间的区别)  
 * []()
 * []()
 
@@ -13,24 +13,25 @@
 - HashMap extends AbstractMap<K,V> implements Map 无序
 - Hashtable, extends Dictionary<K, V> implements Map 无序，同步
 - LinkedHashMap extends HashMap<K,V> implements Map<K,V>, 以插入顺序排序
-## TreeSet/HashSet/LinkedHashSet区别
+## TreeSet-HashSet-LinkedHashSet区别
 - TreeSet基于TreeMap实现，元素有序
 - HashSet基于HashMap实现，元素无序
 - LinkedHashSet继承HashSet，底层使用 LinkedHashMap, 元素以插入顺序排序
-## HashMap 如何解决冲突，扩容机制 resize()
+## HashMap如何解决冲突和扩容机制
 - table长度为capacity，元素加入到table的位置为 (table.length -1)&hash
 - 解决冲突用链表，链表长度大于TREEIFY_THRESHOLD则转为红黑树TreeNode
 - 扩容机制： threshold=capacity * loadFactor， 当元素数量超过threshold时扩容，新的capacity变成原来的两倍, 
 单个元素放在 newTab[e.hash & (newCap - 1)]
 链表中 hash & oldCap == 0的放在原来的位置j，不为0的放在 newTab[j + oldCap], 也可以理解为旧位置用的是 j=hash&(oldCap-1)，扩容时
 用 hash&oldCap==0判断
-## ConcurrentHashMap 如何做到高并发
+## ConcurrentHashMap如何做到高并发
 - put  
   当前位置没有元素的时候，调研Unsafe.compareAndSwapObject，将Node放到当前位置
   当前位置有元素时，锁住当前元素，将Node插入链表尾部，链表长度超过TREEIFY_THRESHOLD则转为红黑树TreeNode
 - get  
   无锁，通过volatile机制实现修改即可见 volatile Node<K,V>[] table
-## 线程池 java.util.concurrent.ThreadPoolExecutor
+## 线程池ThreadPoolExecutor
+java.util.concurrent.ThreadPoolExecutor
 -   ThreadPoolExecutor(int corePoolSize,  
                               int maximumPoolSize,  
                               long keepAliveTime,  
@@ -60,7 +61,7 @@
   BlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>(10);  
   ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 6, 1, TimeUnit.SECONDS, queue);   
   executor.execute(Runnable)   
-### Thread/Runnable/Callable之间的区别
+### Thread-Runnable-Callable之间的区别
   - Thread     
   1. 是一个类      
   2. 只能被继承      
