@@ -72,16 +72,10 @@ class Solution {
                 }
                 
                 if (sum < t) {
-                    while (s < e && nums[s+1] == nums[s]) {
-                        s++;
-                    }
                     s++;
                 }
                 
                 if (sum > t) {
-                    while (e > s && nums[e] == nums[e-1]) {
-                        e--;
-                    }
                     e--;
                 }
             }
