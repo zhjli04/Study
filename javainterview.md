@@ -5,7 +5,7 @@
 * [线程池ThreadPoolExecutor](#线程池ThreadPoolExecutor)  
 * [Thread-Runnable-Callable之间的区别](#Thread-Runnable-Callable之间的区别)  
 * [CyclicBarrier-CountDownLatch-Semaphore](#CyclicBarrier-CountDownLatch-Semaphore)
-* []()
+* [JDK命令行工具](#JDK命令行工具)
 
 ## TreeMap-HashMap-Hashtable-LinkedHashMap区别
 - TreeMap extends AbstractMap<K,V> implements NavigableMap<K,V> (SortedMap) 以key值有序
@@ -264,5 +264,21 @@ acquire()用来获取一个许可，若无许可能够获得，则会一直等�
 - 总结    
     CountDownLatch和CyclicBarrier都能够实现线程之间的等待，只不过它们侧重点不同：CountDownLatch一般用于某个线程A等待若干个其他线程执行完任务之后，它才执行；而CyclicBarrier一般用于一组线程互相等待至某个状态，然后这一组线程再同时执行；另外，CountDownLatch是不能够重用的，而CyclicBarrier是可以重用的。    
     Semaphore其实和锁有点类似，它一般用于控制对某组资源的访问权限。
-        
     
+## JDK命令行工具
+- jps:虚拟机进程状况工具    
+   jps -l    
+- jstat：虚拟机统计信息监视工具    
+jstat命令可用于显示本地或远程虚拟机进程中的类装载 ，内存，垃圾收集，JIT编译等运行数据。    
+jstat [options  vmid  [interval[s|ms]]  [count] ]    
+- jinfo:查看虚拟机配置参数信息    
+jinfo  [option] pid    
+- jmap:生成虚拟机内存转储快照    
+jmap命令用于获取heapdump文件，且可以查询finalize执行队列，Java堆与永久代的一些信息。    
+jmap  [option ]  vmid    
+- jhat:分析虚拟机转储快照信息    
+jhat命令与jmap命令搭配使用，用于分析jmap生成的堆转储快照，jhat内置了一个微型的HTTP/HTML服务器，生成dump文件的分析结果后，可以在浏览器中查看。    
+jhat  heapdumpFileName    
+- jstack:虚拟机堆栈跟踪    
+jstack命令用于生成虚拟机当前时刻的线程快照。线程快照指的是当前虚拟机内的每一条线程正在执行的方法堆栈的集合，生成线程快照的作用是，可用于定位线程出现长时间停顿的原因，如线程间死锁，死循环，请求外部资源导致的长时间等待等问题，当线程出现停顿时 就可以用jstack各个线程调用的堆栈情况。     
+jstack  [option] vmid    
