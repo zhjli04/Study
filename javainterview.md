@@ -7,6 +7,8 @@
 * [CyclicBarrier-CountDownLatch-Semaphore](#CyclicBarrier-CountDownLatch-Semaphore)
 * [JDK命令行工具](#JDK命令行工具)
 * [ThreadLocal](#ThreadLocal)
+* [GCRoots](#GCRoots)
+* [引用](#引用)
 
 ## TreeMap-HashMap-Hashtable-LinkedHashMap区别
 - TreeMap extends AbstractMap<K,V> implements NavigableMap<K,V> (SortedMap) 以key值有序
@@ -291,4 +293,16 @@ jstack  [option] vmid
         localName.set("xxx");
         String name = localName.get();    
         
-- 在ThreadLoalMap中，也是初始化一个大小16的Entry数组，Entry对象用来保存每一个key-value键值对，只不过这里的key永远都是ThreadLocal对象.hreadLoalMap的Entry是继承WeakReference，和HashMap很大的区别是，Entry中没有next字段，所以就不存在链表的情况了。在插入过程中，根据ThreadLocal对象的hash值，定位到table中的位置i，过程如下：1、如果当前位置是空的，那么正好，就初始化一个Entry对象放在位置i上；2、不巧，位置i已经有Entry对象了，如果这个Entry对象的key正好是即将设置的key，那么重新设置Entry中的value；3、很不巧，位置i的Entry对象，和即将设置的key没关系，那么只能找下一个空位置；
+- 在ThreadLoalMap中，也是初始化一个大小16的Entry数组，Entry对象用来保存每一个key-value键值对，只不过这里的key永远都是ThreadLocal对象.hreadLoalMap的Entry是继承WeakReference，和HashMap很大的区别是，Entry中没有next字段，所以就不存在链表的情况了。在插入过程中，根据ThreadLocal对象的hash值，定位到table中的位置i，过程如下：1、如果当前位置是空的，那么正好，就初始化一个Entry对象放在位置i上；2、不巧，位置i已经有Entry对象了，如果这个Entry对象的key正好是即将设置的key，那么重新设置Entry中的value；3、很不巧，位置i的Entry对象，和即将设置的key没关系，那么只能找下一个空位置；    
+## GCRoots    
+在Java语言中，可作为GC Roots的对象包括下面几种：    
+- 虚拟机栈（栈帧中的本地变量表）中引用的对象。    
+- 方法区中类静态属性引用的对象。    
+- 方法区中常量引用的对象。    
+- 本地方法栈中JNI（即一般说的Native方法）引用的对象    
+## 引用    
+- 强引用：在代码中普遍存在的，类似Object obj = new Object();。只要强引用还存在，垃圾回收期就永远不会回收被引用的对象    
+- 软引用：用来描述一些还有用，但并非必须的对象。这样当系统要发生内存溢出异常之前，就会把软引用列进第二次垃圾回收的计划中。SoftReference    
+- 弱引用：比软引用还弱的引用，被弱引用的对象只能存活到下一次垃圾回收之前。WeakReference    
+- 虚引用：最弱的一种引用关系了。使用虚引用的唯一目的就是在这个对象回收前收到一个系统回收通知。PhantomReference    
+
