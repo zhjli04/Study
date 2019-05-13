@@ -6,6 +6,7 @@
 * [Thread-Runnable-Callable之间的区别](#Thread-Runnable-Callable之间的区别)  
 * [CyclicBarrier-CountDownLatch-Semaphore](#CyclicBarrier-CountDownLatch-Semaphore)
 * [JDK命令行工具](#JDK命令行工具)
+* [ThreadLocal](#ThreadLocal)
 
 ## TreeMap-HashMap-Hashtable-LinkedHashMap区别
 - TreeMap extends AbstractMap<K,V> implements NavigableMap<K,V> (SortedMap) 以key值有序
@@ -282,3 +283,12 @@ jhat  heapdumpFileName
 - jstack:虚拟机堆栈跟踪    
 jstack命令用于生成虚拟机当前时刻的线程快照。线程快照指的是当前虚拟机内的每一条线程正在执行的方法堆栈的集合，生成线程快照的作用是，可用于定位线程出现长时间停顿的原因，如线程间死锁，死循环，请求外部资源导致的长时间等待等问题，当线程出现停顿时 就可以用jstack各个线程调用的堆栈情况。     
 jstack  [option] vmid    
+
+## ThreadLocal    
+- 它是一个数据结构，有点像HashMap，可以保存"key : value"键值对，但是一个ThreadLocal只能保存一个，并且各个线程的数据互不干扰。    
+
+        ThreadLocal<String> localName = new ThreadLocal();    
+        localName.set("xxx");
+        String name = localName.get();    
+        
+- 在ThreadLoalMap中，也是初始化一个大小16的Entry数组，Entry对象用来保存每一个key-value键值对，只不过这里的key永远都是ThreadLocal对象.hreadLoalMap的Entry是继承WeakReference，和HashMap很大的区别是，Entry中没有next字段，所以就不存在链表的情况了。在插入过程中，根据ThreadLocal对象的hash值，定位到table中的位置i，过程如下：1、如果当前位置是空的，那么正好，就初始化一个Entry对象放在位置i上；2、不巧，位置i已经有Entry对象了，如果这个Entry对象的key正好是即将设置的key，那么重新设置Entry中的value；3、很不巧，位置i的Entry对象，和即将设置的key没关系，那么只能找下一个空位置；
