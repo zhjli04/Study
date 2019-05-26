@@ -308,7 +308,7 @@ jstack  [option] vmid
 - 虚引用：最弱的一种引用关系了。使用虚引用的唯一目的就是在这个对象回收前收到一个系统回收通知。PhantomReference    
 
 ## AOP
-![AOP](https://blog.csdn.net/KingCat666/article/details/76911704 "aop")    
+[AOP](https://blog.csdn.net/KingCat666/article/details/76911704 "aop")    
 JDK动态代理和CGLIB字节码生成的区别？ 
 
 * JDK动态代理只能对实现了接口的类生成代理，而不能针对类 
