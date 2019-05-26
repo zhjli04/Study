@@ -9,6 +9,7 @@
 * [ThreadLocal](#ThreadLocal)
 * [GCRoots](#GCRoots)
 * [引用](#引用)
+* [AOP](#AOP)
 
 ## TreeMap-HashMap-Hashtable-LinkedHashMap区别
 - TreeMap extends AbstractMap<K,V> implements NavigableMap<K,V> (SortedMap) 以key值有序
@@ -306,3 +307,10 @@ jstack  [option] vmid
 - 弱引用：比软引用还弱的引用，被弱引用的对象只能存活到下一次垃圾回收之前。WeakReference    
 - 虚引用：最弱的一种引用关系了。使用虚引用的唯一目的就是在这个对象回收前收到一个系统回收通知。PhantomReference    
 
+## AOP
+[]("https://blog.csdn.net/KingCat666/article/details/76911704", "")    
+JDK动态代理和CGLIB字节码生成的区别？ 
+
+* JDK动态代理只能对实现了接口的类生成代理，而不能针对类 
+
+* CGLIB是针对类实现代理，主要是对指定的类生成一个子类，覆盖其中的方法，因为是继承，所以该类或方法最好不要声明成final
