@@ -1,3 +1,4 @@
+WAL 的全称是 Write-Ahead Logging,它的关键点就是先写日志，再写磁盘。       
 ## 逻辑架构图
 ![](/0d2070e8f84c4801adbfa03bda1f98d9.png "")    
 
